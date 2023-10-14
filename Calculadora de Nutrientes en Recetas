@@ -1,0 +1,48 @@
+https://replit.com/@Cesar-TomasTom2/Calculadora-de-Nutrientes-en-Recetas
+# Crear un diccionario para almacenar la información nutricional de los ingredientes
+ingredientes = {}
+
+# Solicitar al usuario ingresar los ingredientes y su información nutricional
+numero_ingredientes = int(input("Ingrese el número de ingredientes en la receta: "))
+
+for i in range(numero_ingredientes):
+    nombre = input(f"Ingrese el nombre del ingrediente #{i + 1}: ")
+    cantidad = float(input(f"Ingrese la cantidad de {nombre} en gramos: "))
+    calorias_por_100g = float(input(f"Ingrese las calorías por 100 gramos de {nombre}: "))
+    proteinas_por_100g = float(input(f"Ingrese las proteínas por 100 gramos de {nombre}: "))
+    carbohidratos_por_100g = float(input(f"Ingrese los carbohidratos por 100 gramos de {nombre}: "))
+    grasas_por_100g = float(input(f"Ingrese las grasas por 100 gramos de {nombre}: "))
+
+    # Almacenar la información nutricional en el diccionario
+    ingredientes[nombre] = {
+        'cantidad': cantidad,
+        'calorias_por_100g': calorias_por_100g,
+        'proteinas_por_100g': proteinas_por_100g,
+        'carbohidratos_por_100g': carbohidratos_por_100g,
+        'grasas_por_100g': grasas_por_100g
+    }
+
+# Calcular los nutrientes totales en la receta
+total_calorias = 0
+total_proteinas = 0
+total_carbohidratos = 0
+total_grasas = 0
+
+for nombre, info in ingredientes.items():
+    cantidad = info['cantidad']
+    calorias_por_100g = info['calorias_por_100g']
+    proteinas_por_100g = info['proteinas_por_100g']
+    carbohidratos_por_100g = info['carbohidratos_por_100g']
+    grasas_por_100g = info['grasas_por_100g']
+
+    total_calorias += (cantidad / 100) * calorias_por_100g
+    total_proteinas += (cantidad / 100) * proteinas_por_100g
+    total_carbohidratos += (cantidad / 100) * carbohidratos_por_100g
+    total_grasas += (cantidad / 100) * grasas_por_100g
+
+# Mostrar los nutrientes totales en la receta
+print("\nNutrientes totales en la receta:")
+print(f"Calorías totales: {total_calorias} cal")
+print(f"Proteínas totales: {total_proteinas} gramos")
+print(f"Carbohidratos totales: {total_carbohidratos} gramos")
+print(f"Grasas totales: {total_grasas} gramos")
