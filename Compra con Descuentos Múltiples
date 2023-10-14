@@ -1,0 +1,25 @@
+https://replit.com/@Cesar-TomasTom2/Compra-con-Descuentos-Multiples
+
+precio_producto = float(input("Ingrese el precio del producto: "))
+categoria = input("Ingrese la categoría del producto (A, B o C): ").upper()
+
+if categoria == "A":
+    descuento_categoria = 0.10
+elif categoria == "B":
+    descuento_categoria = 0.05
+elif categoria == "C":
+    descuento_categoria = 0.02
+else:
+    descuento_categoria = 0
+
+cantidad_unidades = int(input("Ingrese la cantidad de unidades compradas: "))
+
+if cantidad_unidades > 10:
+    descuento_adicional = 0.05
+else:
+    descuento_adicional = 0
+
+descuento_total = descuento_categoria + descuento_adicional
+precio_final = precio_producto * (1 - descuento_total)
+
+print(f"El precio final después de aplicar los descuentos es: ${precio_final:.2f}")
