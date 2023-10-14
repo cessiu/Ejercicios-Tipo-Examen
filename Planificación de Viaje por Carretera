@@ -1,0 +1,21 @@
+https://replit.com/@Cesar-TomasTom2/Planificacion-de-Viaje-por-Carretera
+# Solicitar al usuario ingresar la distancia en millas, rendimiento del automóvil y precio de la gasolina
+distancia_millas = float(input("Ingrese la distancia en millas: "))
+rendimiento_mpg = float(input("Ingrese el rendimiento en millas por galón de su automóvil: "))
+precio_gasolina = float(input("Ingrese el precio actual de la gasolina por galón: "))
+dias_viaje = int(input("Ingrese cuántos días planea viajar: "))
+
+# Calcular la cantidad total de galones necesarios para el viaje
+galones_necesarios = distancia_millas / rendimiento_mpg
+
+# Inicializar variables para el costo total del viaje
+costo_total = 0
+
+# Solicitar al usuario ingresar los precios diarios de la gasolina durante el viaje
+for dia in range(1, dias_viaje + 1):
+    precio_diario = float(input(f"Ingrese el precio de la gasolina en el día {dia}: "))
+    costo_diario = galones_necesarios * precio_diario
+    costo_total += costo_diario
+
+# Mostrar el costo total del viaje
+print(f"El costo total del viaje es de ${costo_total:.2f}")
