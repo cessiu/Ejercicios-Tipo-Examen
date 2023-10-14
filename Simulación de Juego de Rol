@@ -1,0 +1,42 @@
+https://replit.com/@Cesar-TomasTom2/Simulacion-de-Juego-de-Rol
+import random
+
+# Definición de personajes y sus habilidades
+personajes = {
+    "Guerrero": {"fuerza": 10, "destreza": 5, "inteligencia": 2},
+    "Mago": {"fuerza": 3, "destreza": 5, "inteligencia": 10},
+    "Ladrón": {"fuerza": 5, "destreza": 10, "inteligencia": 5},
+}
+
+# Función para lanzar un dado de 6 caras
+def lanzar_dado():
+    return random.randint(1, 6)
+
+# Función para simular una acción de un personaje
+def simular_accion(personaje):
+    dado = lanzar_dado()
+    exito = dado + personajes[personaje]["destreza"]
+    return exito
+
+# Función para simular un encuentro con un enemigo
+def simular_encuentro(personaje):
+    enemigo = random.choice(list(personajes.keys()))
+    exito_jugador = simular_accion(personaje)
+    exito_enemigo = simular_accion(enemigo)
+
+    print(f"¡Un {enemigo} apareció!")
+
+    if exito_jugador > exito_enemigo:
+        print(f"{personaje} ataca y derrota al {enemigo}. ¡Victoria!")
+    else:
+        print(f"{enemigo} derrota a {personaje}. ¡Derrota!")
+
+# Elección del personaje por el jugador
+print("Elige tu personaje: Guerrero, Mago o Ladrón.")
+personaje_elegido = input("Personaje: ")
+
+if personaje_elegido in personajes:
+    print(f"Has elegido a un {personaje_elegido}. ¡Prepárate para la batalla!")
+    simular_encuentro(personaje_elegido)
+else:
+    print("Personaje no válido. Elige entre Guerrero, Mago o Ladrón.")
