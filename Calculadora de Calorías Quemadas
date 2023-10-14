@@ -1,0 +1,22 @@
+https://replit.com/@Cesar-TomasTom2/Calculadora-de-Calorias-Quemadas
+# Diccionario con las fórmulas para calcular calorías quemadas por minuto para diferentes actividades
+actividades = {
+    "correr": 7.0,  # Calorías quemadas por minuto al correr
+    "nadar": 10.0,  # Calorías quemadas por minuto al nadar
+    "bicicleta": 5.0  # Calorías quemadas por minuto al andar en bicicleta
+}
+
+# Solicitar al usuario ingresar peso, duración y tipo de actividad
+peso = float(input("Ingrese su peso en kg: "))
+duracion_minutos = float(input("Ingrese la duración en minutos: "))
+actividad = input("Ingrese el tipo de actividad (correr, nadar, bicicleta, etc.): ").lower()
+
+# Comprobar si la actividad ingresada está en el diccionario de actividades
+if actividad in actividades:
+    # Calcular las calorías quemadas usando la fórmula específica para la actividad
+    calorias_quemadas = actividades[actividad] * duracion_minutos * peso
+
+    # Mostrar el resultado
+    print(f"Calorías quemadas durante {duracion_minutos} minutos de {actividad}: {calorias_quemadas} calorías")
+else:
+    print("La actividad ingresada no está en la lista de actividades compatibles.")
