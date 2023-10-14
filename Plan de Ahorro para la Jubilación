@@ -1,0 +1,22 @@
+https://replit.com/@Cesar-TomasTom2/Plan-de-Ahorro-Para-Jubilacion
+# Solicita al usuario su edad actual, la edad de jubilación deseada y la cantidad deseada para la jubilación
+edad_actual = int(input("Ingrese su edad actual: "))
+edad_jubilacion = int(input("Ingrese la edad a la que planea jubilarse: "))
+cantidad_deseada_jubilacion = float(input("Ingrese la cantidad deseada para la jubilación: "))
+
+# Calcula el número de años hasta la jubilación
+t = edad_jubilacion - edad_actual
+
+# Solicita al usuario la tasa de interés anual esperada como un porcentaje
+tasa_interes_anual = float(input("Ingrese la tasa de interés anual esperada (porcentaje): "))
+# Convierte la tasa de interés anual a tasa de interés mensual (dividido por 12 y expresado en decimales)
+tasa_interes_mensual = (tasa_interes_anual / 100) / 12
+
+# Calcula el número de pagos mensuales en la jubilación (años de jubilación multiplicados por 12)
+n = t * 12
+
+# Calcula el pago mensual necesario utilizando la fórmula
+pago_mensual_necesario = cantidad_deseada_jubilacion * tasa_interes_mensual / ((1 + tasa_interes_mensual) ** n - 1)
+
+# Muestra el resultado
+print(f"Para alcanzar la cantidad deseada de jubilación, necesita ahorrar mensualmente: ${pago_mensual_necesario:.2f}")
